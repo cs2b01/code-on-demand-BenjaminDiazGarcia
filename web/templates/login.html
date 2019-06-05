@@ -1,29 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <meta charset="UTF-8">
     <title>Chat Login</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script src="login.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
-
-    <table>
-        <tr>
-            <td>Username</td>
-            <td><input type="text" name="username" id="username"/></td>
-        </tr>
-        <tr>
-            <td>Password</td>
-            <td><input type="password" name="password" id="password" /></td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <input type="button" value="login" onclick="getData()"/>
-            </td>
-        </tr>
-    </table>
-
-    <label id="action">Waiting for user</label>
+<div class="container">
+        <div class="row justify-content-center align-items-center" style="height:100vh">
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="" autocomplete="off">
+                            <table>
+                                <tr>
+                                    <td>Username</td>
+                                    <td><input type="text" class="form-control" name="username" id="username"/></td>
+                                </tr>
+                                <tr>
+                                    <td>Password</td>
+                                    <td><input type="password" class="form-control" name="password" id="password" /></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <input  id="miBoton" type="button" class="btn btn-primary" value="Login" onclick="getData()"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center align-items-center" style="height:100vh">
+        <div id="action">
+            <img id="ok "src="/static/images/thumbs-up.png" style="display:none"/>
+            <img id="fail" src="/static/images/thumbs-down.png" style="display:none"/>
+            <img id="wait" src="/static/images/loading.gif" style="display:none"/>
+        </div>
+    </div>
+    <script type="text/javascript">
+    $(function () {
+        $("#miBoton").click(function (e) {
+            e.preventDefault();
+            $('html,body').animate({
+                scrollTop: $("#action").offset().top
+            }, 2000);
+        });
+    })
+    </script>
 </body>
 </html>

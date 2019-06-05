@@ -1,5 +1,5 @@
 function getData(){
-        $('#action').html("Authenticating...");
+        $('#wait').show();
         var username = $('#username').val();
         var password = $('#password').val();
         var message = JSON.stringify({
@@ -19,7 +19,15 @@ function getData(){
             },
             error: function(response){
                 //alert(JSON.stringify(response));
-                $('#action').html(response['statusText']);
+                if (response['status']==401){
+                    $('#wait').hide();
+                    $('#loading').hide();
+                    $('#fail').show()
+                }else{
+                    $('#wait').hide();
+                    $('#loading').hide();
+                    $('#ok').show()
+                }
             }
         });
     }

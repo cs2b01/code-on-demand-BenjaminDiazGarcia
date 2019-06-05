@@ -42,7 +42,7 @@ def get_user(id):
 @app.route('/create_test_users', methods = ['GET'])
 def create_test_users():
     db_session = db.getSession(engine)
-    user = entities.User(name="David", fullname="Lazo", password="1234", username="qwerty")
+    user = entities.User(name="Benjamin", fullname="Diaz", password="1234", username="Bepz")
     db_session.add(user)
     db_session.commit()
     return "Test user created!"
@@ -63,7 +63,7 @@ def create_user():
 
 @app.route('/authenticate', methods = ["POST"])
 def authenticate():
-    time.sleep(8)
+    time.sleep(4)
     message = json.loads(request.data)
     username = message['username']
     password = message['password']
